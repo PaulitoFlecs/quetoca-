@@ -1,0 +1,401 @@
+/* ===== Fondo general ===== */
+.login-bg {
+  background: url('../assets/img/fondo.webp') no-repeat center center fixed;
+  background-size: cover;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+/* ===== Barra superior ===== */
+.topbar {
+  background: #fff;
+  border-bottom: 2px solid #eaeaea;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 80px;
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 2rem;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+}
+
+.topbar h4 {
+  color: #0b2c61;
+  font-weight: 700;
+  font-size: 1.3rem;
+  margin: 0;
+}
+
+.logo-topbar {
+  height: 55px;
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+/* ===== Contenedor principal ===== */
+.container {
+  max-width: 1300px;
+}
+
+/* ===== Controles superiores ===== */
+.info-box label {
+  font-weight: 600;
+  color: #0b2c61;
+}
+
+.form-select,
+.form-control {
+  border-radius: 8px;
+  border: 1px solid #ced4da;
+  padding: 0.45rem 0.75rem;
+  font-size: 0.95rem;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
+  transition: all 0.3s ease;
+  background-color: rgba(255, 255, 255, 0.9);
+}
+
+.form-select:focus,
+.form-control:focus {
+  border-color: #0b2c61;
+  box-shadow: 0 0 0 0.25rem rgba(11, 44, 97, 0.15);
+}
+
+/* ===== Encabezado del horario ===== */
+#headerHorario {
+  background-color: rgba(255, 255, 255, 0.95);
+  border: 1px solid #e3e6eb;
+  border-radius: 14px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+  backdrop-filter: blur(8px);
+}
+
+#cursoBadge {
+  background-color: #0b2c61 !important;
+  border-radius: 8px;
+  font-weight: 600;
+  letter-spacing: 0.3px;
+}
+
+/* ===== Tabla del horario ===== */
+.table {
+  border-collapse: separate;
+  border-spacing: 0;
+  overflow: hidden;
+  border-radius: 16px;
+  margin-top: 10px;
+}
+
+.table thead th {
+  background-color: #0b2c61;
+  color: white;
+  font-weight: 600;
+  text-transform: uppercase;
+  border: none;
+  padding: 12px 0;
+  letter-spacing: 0.5px;
+  font-size: 0.9rem;
+}
+
+/* Reducir ancho de columnas */
+.table th,
+.table td {
+  width: 17.5%; /* más equilibrado */
+}
+
+.table th:first-child {
+  width: 120px;
+  border-top-left-radius: 16px;
+}
+
+.table th:last-child {
+  border-top-right-radius: 16px;
+}
+
+.table td {
+  background-color: rgba(255, 255, 255, 0.95);
+  vertical-align: middle;
+  border: 1px solid #e0e0e0;
+  text-align: center;
+  padding: 5px 8px;
+}
+
+.table td:first-child {
+  background-color: #f4f6fa;
+  font-weight: 600;
+  color: #0b2c61;
+}
+
+/* ===== Bloques asignaturas ===== */
+.bloque-asignatura {
+  border-radius: 10px;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.1);
+  transition: all 0.25s ease-in-out;
+  margin-bottom: 8px; /* separa del botón agregar */
+  padding: 5px;
+}
+
+.bloque-asignatura:hover {
+  transform: scale(1.03);
+  filter: brightness(1.1);
+}
+
+/* ===== Botón "+" ===== */
+.btn-outline-secondary {
+  border-radius: 8px;
+  font-weight: 600;
+  font-size: 0.9rem;
+  transition: all 0.3s;
+  background-color: white;
+}
+
+.btn-outline-secondary:hover {
+  background-color: #0b2c61;
+  color: #fff;
+  border-color: #0b2c61;
+}
+
+/* ===== Altura fija de celdas ===== */
+.celda-horario {
+  height: 115px !important;
+  vertical-align: middle !important;
+  overflow: hidden;
+  position: relative;
+}
+
+tr {
+  height: 115px !important;
+}
+
+.celda-horario button {
+  position: relative;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+/* ===== Animaciones ===== */
+.fade-container {
+  opacity: 1;
+  transition: opacity 0.4s ease-in-out;
+}
+
+.fade-container.fade-out {
+  opacity: 0;
+}
+
+.fade-in {
+  opacity: 0;
+  animation: fadeIn 0.6s ease-in-out forwards;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: scale(0.97);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+/* ===== Botones flotantes ===== */
+button.btn.shadow {
+  border-radius: 10px;
+  font-weight: 500;
+  padding: 8px 16px;
+  transition: all 0.3s ease;
+}
+
+button.btn.shadow:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+/* ===== Footer ===== */
+footer {
+  font-size: 0.9rem;
+  color: #666;
+}
+/* ===== Encabezado del horario (versión delgada y profesional) ===== */
+.table thead th {
+  background: linear-gradient(180deg, #0b2c61 0%, #163b79 100%);
+  color: #fff;
+  font-weight: 1000;
+  text-transform: uppercase;
+  border: none;
+  padding: 4px 0 6px 0;   /* Altura mucho más delgada */
+  font-size: 0.85rem;
+  letter-spacing: 0.4px;
+  line-height: 1.1;
+  height: 30px;            /* 🔹 Control de altura fija */
+  vertical-align: middle;
+}
+
+
+
+/* Sombra sutil inferior para separar el bloque */
+.table thead {
+  box-shadow: inset 0 -2px 0 rgba(255, 255, 255, 0.05),
+              0 2px 4px rgba(0, 0, 0, 0.15);
+  border-collapse: collapse;
+}
+
+/* Corrige cualquier borde blanco visible */
+.table {
+  border-spacing: 0;
+  border-collapse: collapse;
+  margin-top: 0;
+}
+
+/* ===== Separadores entre bloques ===== */
+.bloques-container {
+  display: flex;
+  flex-direction: column;
+  gap: 4px; /* separa visualmente los bloques y botones */
+}
+
+/* ===== Bloques de asignaturas ===== */
+.bloque-asignatura {
+  border-radius: 8px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08);
+  border: 1px solid rgba(11, 44, 97, 0.45); /* azul CASAN más visible */
+  transition: all 0.25s ease-in-out;
+  padding: 4px;
+  margin: 0;
+}
+
+.bloque-asignatura:hover {
+  transform: scale(1.03);
+  filter: brightness(1.1);
+  border-color: rgba(11, 44, 97, 0.7);
+}
+
+/* ===== Celdas del horario ===== */
+.celda-horario {
+  border-right: 1px solid rgba(11, 44, 97, 0.4);
+  border-left: 1px solid rgba(11, 44, 97, 0.4);
+  border-bottom: 1px solid rgba(11, 44, 97, 0.3);
+}
+
+/* Primera columna más destacada */
+.table td:first-child {
+  border-right: 1px solid rgba(11, 44, 97, 0.5);
+}
+
+/* Encabezado inferior con línea divisoria */
+.table thead th {
+  border-bottom: 2px solid rgba(255, 255, 255, 0.15);
+}
+
+/* Líneas generales externas más limpias */
+.table {
+  border: 1px solid rgba(11, 44, 97, 0.35);
+  border-radius: 14px;
+  overflow: hidden;
+}
+/* === GRILLA FINAL CASAN === */
+
+/* 🔹 Líneas visibles y consistentes */
+.table {
+  border-collapse: collapse;
+  border: 2px solid rgba(11, 44, 97, 0.55); /* marco principal azul CASAN */
+  border-radius: 14px;
+  overflow: hidden;
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.08);
+}
+
+/* 🔹 Encabezado del horario (mantiene el degradado limpio) */
+.table thead th {
+  background: linear-gradient(180deg, #0b2c61 0%, #163b79 100%);
+  color: #e9ecf7;
+  font-weight: 600;
+  text-transform: uppercase;
+  border-bottom: 2px solid rgba(11, 44, 97, 0.55);
+  padding: 6px 0 7px 0;
+  font-size: 0.85rem;
+  letter-spacing: 0.6px;
+  height: 34px;
+  vertical-align: middle;
+}
+
+/* 🔹 Celdas del horario */
+.table td {
+  background-color: rgba(255, 255, 255, 0.96);
+  border: 1px solid rgba(11, 44, 97, 0.4); /* separadores más visibles */
+  text-align: center;
+  padding: 5px 8px;
+  vertical-align: middle;
+}
+
+/* 🔹 Primera columna (bloques horarios) */
+.table td:first-child {
+  background-color: #f4f6fa;
+  font-weight: 600;
+  color: #0b2c61;
+  border-right: 2px solid rgba(11, 44, 97, 0.5);
+}
+
+/* 🔹 Separación horizontal más clara entre filas */
+.table tr {
+  border-bottom: 2px solid rgba(11, 44, 97, 0.35);
+}
+
+/* === BLOQUES DE ASIGNATURAS === */
+.bloques-container {
+  display: flex;
+  flex-direction: column;
+  gap: 6px; /* más separación visual entre bloques */
+}
+
+.bloque-asignatura {
+  border-radius: 8px;
+  border: 1px solid rgba(11, 44, 97, 0.55); /* borde definido */
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+  transition: all 0.25s ease-in-out;
+  padding: 5px;
+}
+
+.bloque-asignatura:hover {
+  transform: scale(1.03);
+  filter: brightness(1.1);
+  border-color: rgba(11, 44, 97, 0.8);
+}
+
+/* === Botón "+" === */
+.btn-outline-secondary {
+  border-radius: 8px;
+  font-weight: 600;
+  font-size: 0.9rem;
+  transition: all 0.3s;
+  border: 1px solid rgba(11, 44, 97, 0.45);
+  background-color: #fff;
+  color: #0b2c61;
+}
+
+.btn-outline-secondary:hover {
+  background-color: #0b2c61;
+  color: #fff;
+}
+
+/* === Líneas verticales más definidas === */
+.celda-horario {
+  border-right: 2px solid rgba(11, 44, 97, 0.45);
+  border-left: 2px solid rgba(11, 44, 97, 0.45);
+  border-bottom: 1px solid rgba(11, 44, 97, 0.35);
+}
+
+/* === Ajuste general === */
+tr {
+  height: 115px !important;
+}
+
+/* === Efecto sutil entre filas === */
+.table tbody tr:nth-child(even) td {
+  background-color: rgba(248, 249, 252, 0.9);
+}

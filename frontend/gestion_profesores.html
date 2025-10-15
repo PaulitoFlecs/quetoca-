@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Gestión de Profesores - Carga Horaria</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="css/styles.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+  <div class="login-bg">
+    
+    <!-- Header -->
+    <header class="topbar d-flex align-items-center px-4 position-relative shadow-sm">
+      <h4 class="fw-bold m-0 brand-text">Gestión de Profesores</h4>
+      <img src="assets/img/logo.webp" alt="Logo" class="logo-topbar">
+      <button class="btn btn-link text-dark ms-auto" onclick="toggleSidebar()">
+        <i class="fas fa-bars fa-lg"></i>
+      </button>
+    </header>
+
+    <!-- Sidebar accesibilidad -->
+    <div id="sidebar" class="sidebar">
+      <button class="closebtn" onclick="toggleSidebar()">×</button>
+      <h5 class="text-center mb-4">Accesibilidad</h5>
+      <button class="sidebar-item" onclick="increaseFont()">🔼 Aumentar letra</button>
+      <button class="sidebar-item" onclick="decreaseFont()">🔽 Disminuir letra</button>
+      <button class="sidebar-item" onclick="toggleContrast()">🌙 Alto contraste</button>
+      <button class="sidebar-item" onclick="zoomPage()">🔍 Lupa</button>
+      <button class="sidebar-item" onclick="readContent()">🗣️ Lectura en voz alta</button>
+      <hr>
+      <button class="sidebar-item text-danger" onclick="resetAccessibility()">♻️ Resetear</button>
+      <hr>
+      <button class="sidebar-item text-danger fw-bold" onclick="logout()">🚪 Cerrar Sesión</button>
+    </div>
+    <div id="overlay" class="overlay" onclick="toggleSidebar()"></div>
+
+    <!-- Contenido -->
+    <div class="container my-5" style="margin-top: 120px; margin-bottom: 80px;">
+  <div class="row justify-content-center">
+    
+    <!-- Card Profesores -->
+    <div class="col-12">
+      <div class="card shadow-lg border-0 rounded-3">
+        <div class="card-header bg-primary text-white d-flex align-items-center">
+          <i class="fas fa-users fa-lg me-2"></i>
+          <h5 class="mb-0">Profesores Disponibles</h5>
+        </div>
+        <!-- Buscador -->
+        <div class="p-2">
+          <input type="text" id="buscarProfesor" class="form-control" placeholder="🔍 Buscar profesor...">
+        </div>
+        <!-- Grid con scroll interno -->
+        <div class="p-3" style="max-height: 650px; overflow-y: auto;">
+          <div id="listaProfesores" class="row g-3">
+            <!-- Render dinámico -->
+          </div>
+        </div>
+        <!-- Mensaje de búsqueda vacía -->
+        <div id="mensajeBusqueda" class="text-danger text-center py-2" style="display:none;">
+          ⚠️ No se encontraron profesores
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+
+
+    <!-- Modal Editar Profesor -->
+    <div class="modal fade" id="editarProfesorModal" tabindex="-1" aria-hidden="true">
+      <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+          
+          <div class="modal-header bg-primary text-white">
+            <h5 class="modal-title">✏️ Editar Profesor</h5>
+            <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"></button>
+          </div>
+          
+          <div class="modal-body">
+            <form id="formEditarProfesor">
+              <div class="mb-3">
+                <label for="nuevoNombre" class="form-label">Nombre</label>
+                <input type="text" id="nuevoNombre" class="form-control" required>
+              </div>
+              <div class="mb-3">
+                <label for="nuevaPass" class="form-label">Contraseña</label>
+                <input type="password" id="nuevaPass" class="form-control">
+              </div>
+              <div class="mb-3">
+                <label for="confirmPass" class="form-label">Confirmar Contraseña</label>
+                <input type="password" id="confirmPass" class="form-control">
+              </div>
+              <!-- Nuevo campo para la foto -->
+              <div class="mb-3">
+                <label for="nuevaFoto" class="form-label">Foto</label>
+                <input type="file" id="nuevaFoto" class="form-control" accept="image/*">
+              </div>
+              <input type="hidden" id="profesorIndex">
+            </form>
+          </div>
+          
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+            <button type="submit" form="formEditarProfesor" class="btn btn-success">Guardar cambios</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Modal Ver Asignaturas -->
+    <div class="modal fade" id="verAsignaturasModal" tabindex="-1" aria-hidden="true">
+      <div class="modal-dialog modal-lg modal-dialog-centered">
+        <div class="modal-content">
+          
+          <div class="modal-header bg-success text-white">
+            <h5 class="modal-title">📚 Asignaturas de <span id="nombreProfesorAsignaturas"></span></h5>
+            <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"></button>
+          </div>
+          
+          <div class="modal-body">
+            <ul class="list-group" id="listaAsignaturas"></ul>
+          </div>
+          
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <!-- Footer -->
+    <footer class="text-center py-2">
+      © TODOS LOS DERECHOS RESERVADOS
+    </footer>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="js/menu.js"></script>
+</body>
+</html>

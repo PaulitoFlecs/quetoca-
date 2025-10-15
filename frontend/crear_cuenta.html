@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Crear Cuenta - Carga Horaria</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body class="login-bg">
+
+  <!-- Header -->
+  <header class="topbar">
+  <h4 class="fw-bold m-0 brand-text position-absolute start-0 ms-4">Carga Horaria</h4>
+
+  <img src="assets/img/logo.webp" alt="Logo" class="logo-topbar">
+
+  <!-- Botón accesibilidad -->
+  <button class="btn btn-link text-dark position-absolute end-0 me-4" onclick="toggleSidebar()">
+    <i class="fas fa-bars fa-lg"></i>
+  </button>
+</header>
+
+  <!-- Registro -->
+  <div class="login-container">
+    <div class="card login-card shadow-lg p-4">
+      <h4 class="text-center mb-4">Crear Cuenta Profesor</h4>
+      <form id="registerForm" novalidate>
+        
+        <!-- Nombre -->
+        <div class="mb-3">
+          <input type="text" id="nombre" class="form-control" placeholder="Nombre completo" required>
+          <small class="text-danger d-none" id="errorNombre">⚠️ Ingresa tu nombre completo.</small>
+        </div>
+
+        <!-- Correo -->
+        <div class="mb-3">
+          <input type="email" id="correo" class="form-control" placeholder="nombre.apellido@educacionadventista.cl" required>
+          <small class="text-danger d-none" id="errorCorreo">⚠️ Solo se permiten correos @educacionadventista.cl.</small>
+        </div>
+
+        <!-- Teléfono -->
+        <div class="mb-3">
+          <input type="tel" id="telefono" class="form-control" placeholder="+569XXXXXXXX" required>
+          <small class="text-danger d-none" id="errorTelefono">⚠️ Número de teléfono inválido (ej: +569XXXXXXXX).</small>
+        </div>
+
+        <!-- Contraseña -->
+        <div class="mb-3">
+          <input type="password" id="password" class="form-control" placeholder="Contraseña" required>
+        </div>
+
+        <!-- Confirmar Contraseña -->
+        <div class="mb-3">
+          <input type="password" id="confirmPassword" class="form-control" placeholder="Confirmar contraseña" required>
+          <small class="text-danger d-none" id="errorPassword">⚠️ Las contraseñas no coinciden.</small>
+        </div>
+
+        <!-- Botón -->
+        <div class="d-grid">
+          <button type="submit" class="btn btn-primary rounded-pill">Registrar</button>
+        </div>
+      </form>
+
+      <!-- Verificación de código -->
+      <div id="verifySection" class="mt-4 d-none">
+       <h5 class="text-center">Verifica tu correo</h5>
+       <p class="text-center">Hemos enviado un código a tu correo institucional.</p>
+
+       <input type="text" id="codigoVerificacion" class="form-control mb-2" placeholder="Ingresa el código">
+       <button class="btn btn-success w-100 mb-2" onclick="verificarCodigo()">Verificar</button>
+       <small class="text-danger d-none" id="errorCodigo">⚠️ Código incorrecto.</small>
+
+       <!-- Botón para reenviar -->
+       <button id="btnReenviar" class="btn btn-link w-100" disabled>Reenviar código (15s)</button>
+      </div>
+
+
+      <!-- Volver al login -->
+      <div class="text-center mt-3">
+        <a href="index.html" class="text-decoration-none">¿Ya tienes cuenta? Inicia sesión</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <footer class="text-center py-2">
+    © TODOS LOS DERECHOS RESERVADOS
+  </footer>
+
+  <script src="js/registro.js"></script>
+</body>
+</html>

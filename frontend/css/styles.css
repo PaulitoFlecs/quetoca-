@@ -1,0 +1,583 @@
+/* ===== Fondo del login ===== */
+.login-bg {
+  background: url('../assets/img/fondo.webp') no-repeat center center fixed;
+  background-size: cover;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+/* ===== Barra superior blanca ===== */
+.topbar {
+  background: #fff;
+  border-bottom: 2px solid #eaeaea;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1000;
+  height: 80px; /* un poco más alta */
+  display: flex;
+  align-items: center;
+  padding: 0 2rem;
+}
+
+/* Texto "Carga Horaria" con color del logo */
+.brand-text {
+  color: #0b2c61; /* mismo azul corporativo */
+  font-size: 1.4rem;
+  font-weight: 700;
+  margin: 0;
+}
+
+/* Logo centrado y más grande */
+.logo-topbar {
+  height: 55px;   /* antes 40px */
+  object-fit: contain;
+}
+
+/* ===== Contenedor central del login ===== */
+.login-container {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding-top: 80px; /* deja espacio para la topbar */
+}
+
+/* ===== Caja del login ===== */
+.login-card {
+  width: 100%;
+  max-width: 450px; /* más grande que antes */
+  border-radius: 20px;
+  padding: 2rem;
+}
+
+/* ===== Botón ===== */
+.btn-primary {
+  background-color: #0056b3;
+  border: none;
+  font-size: 1.1rem;
+  padding: 0.75rem;
+}
+
+.btn-primary:hover {
+  background-color: #003f7f;
+}
+
+/* ===== Footer ===== */
+footer {
+  background: rgba(255, 255, 255, 0.8);
+  font-weight: bold;
+}
+
+img {
+  outline: none;
+  user-select: none;   /* evita selección de texto en imágenes */
+  -webkit-user-drag: none; /* evita arrastrar en Chrome/Edge */
+}
+
+/* Modo alto contraste */
+.high-contrast {
+  background-color: #000 !important;
+  color: #fff !important;
+}
+
+.high-contrast input,
+.high-contrast button,
+.high-contrast .card {
+  background-color: #222 !important;
+  color: #fff !important;
+  border: 1px solid #fff;
+}
+
+/* ===== Sidebar estilo Canva ===== */
+.sidebar {
+  height: 100%;
+  width: 0;
+  position: fixed;
+  top: 0;
+  right: 0;
+  background-color: #fff;
+  overflow-x: hidden;
+  transition: 0.4s;
+  padding-top: 80px; /* deja espacio para topbar */
+  box-shadow: -2px 0 10px rgba(0,0,0,0.2);
+  z-index: 2000;
+}
+
+.sidebar h5 {
+  font-weight: 700;
+  color: #0b2c61;
+}
+
+.sidebar-item {
+  display: block;
+  width: 100%;
+  padding: 12px 20px;
+  text-align: left;
+  border: none;
+  background: none;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.sidebar-item:hover {
+  background-color: #f1f1f1;
+}
+
+/* Botón de cierre moderno */
+/* Botón de cierre moderno centrado */
+.closebtn {
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: #fff;
+  background: #e74c3c;
+  border-radius: 50%;
+  width: 35px;
+  height: 35px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  border: none;
+  transition: all 0.2s ease;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+}
+
+.closebtn:hover {
+  background: #c0392b;
+  transform: scale(1.1);
+}
+/* ===== Botones del menú ===== */
+.menu-card {
+  display: block;
+  background: rgba(255, 255, 255, 0.9);
+  border-radius: 20px;
+  padding: 30px 20px;
+  text-align: center;
+  text-decoration: none;
+  color: #003366;
+  font-weight: bold;
+  transition: all 0.3s ease-in-out;
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+}
+
+.menu-card i {
+  color: #0056b3;
+  margin-bottom: 10px;
+  transition: transform 0.3s ease-in-out;
+}
+
+.menu-card:hover {
+  background: #0056b3;
+  color: white;
+  transform: translateY(-5px);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+}
+
+.menu-card:hover i {
+  color: white;
+  transform: scale(1.2);
+}
+
+.menu-card h5 {
+  margin-top: 10px;
+  font-size: 1.1rem;
+}
+/* ===== Animación de entrada ===== */
+@keyframes fadeInUp {
+  0% {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.menu-card {
+  display: block;
+  background: rgba(255, 255, 255, 0.9);
+  border-radius: 20px;
+  padding: 30px 20px;
+  text-align: center;
+  text-decoration: none;
+  color: #003366;
+  font-weight: bold;
+  transition: all 0.3s ease-in-out;
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+  opacity: 0; /* invisible al inicio */
+  animation: fadeInUp 0.8s ease forwards;
+}
+
+/* Aparecen con delay cada botón */
+.menu-card:nth-child(1) {
+  animation-delay: 0.2s;
+}
+.menu-card:nth-child(2) {
+  animation-delay: 0.4s;
+}
+.menu-card:nth-child(3) {
+  animation-delay: 0.6s;
+}
+.menu-card:nth-child(4) {
+  animation-delay: 0.8s;
+}
+
+.menu-card i {
+  color: #0056b3;
+  margin-bottom: 10px;
+  transition: transform 0.3s ease-in-out;
+}
+
+.menu-card:hover {
+  background: #0056b3;
+  color: white;
+  transform: translateY(-5px);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+}
+
+.menu-card:hover i {
+  color: white;
+  transform: scale(1.2);
+}
+
+.menu-card h5 {
+  margin-top: 10px;
+  font-size: 1.1rem;
+}
+/* ===== Header (topbar) ===== */
+.topbar {
+  background: #fff;
+  border-bottom: 2px solid #eaeaea;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1000;
+  height: 70px;
+  display: flex;
+  align-items: center;
+  justify-content: center; /* centra el contenido */
+}
+
+/* Forzamos el logo al centro absoluto */
+.logo-topbar {
+  height: 45px;
+  display: block;
+  margin: 0 auto;
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+}
+/* ===== Fix del logo centrado ===== */
+.topbar {
+  background: #fff;
+  border-bottom: 2px solid #eaeaea;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1000;
+  height: 70px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between; /* deja espacio entre titulo y botón */
+  padding: 0 1rem;
+}
+
+.topbar h4 {
+  margin: 0;
+  font-size: 1.2rem;
+  color: #0b2c61;
+  font-weight: bold;
+}
+
+.logo-topbar {
+  height: 45px;
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+/* ===== Fix Footer pegado abajo ===== */
+html, body {
+  height: 100%;
+  margin: 0;
+}
+
+.login-bg {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+footer {
+  margin-top: auto;
+  background: rgba(255, 255, 255, 0.8);
+  font-weight: bold;
+}
+
+/* ===== Sidebar visible ===== */
+.sidebar {
+  height: 100%;
+  width: 0;
+  position: fixed;
+  top: 0;
+  right: 0;
+  background-color: #fff;
+  overflow-x: hidden;
+  transition: 0.3s;
+  padding-top: 80px;
+  box-shadow: -2px 0 10px rgba(0,0,0,0.2);
+  z-index: 2000;
+}
+
+.overlay {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0,0.4);
+  z-index: 1500;
+}
+.card {
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 12px 20px rgba(0,0,0,0.2);
+}
+
+.card-header {
+  font-weight: 600;
+  font-size: 1.1rem;
+}
+
+.list-group-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+/* ===== Estilos exclusivos de Carga Horaria ===== */
+
+.tabla-horario th {
+  background-color: #0b2c61;
+  color: white;
+  text-align: center;
+  vertical-align: middle;
+}
+
+.tabla-horario td {
+  text-align: center;
+  vertical-align: middle;
+}
+
+.editable {
+  cursor: pointer;
+  background: #f8f9fa;
+}
+
+.editable:focus {
+  background: #fff3cd;
+  outline: 2px solid #ffc107;
+}
+
+.info-box {
+  background: white;
+  border-radius: 10px;
+  padding: 10px 20px;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+  margin: 5px;
+  display: inline-block;
+}
+
+/* ===== Estilos de Asignaturas ===== */
+.card-asignatura {
+  border-radius: 12px;
+  box-shadow: 0 3px 8px rgba(0,0,0,0.1);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  background: #fff;
+}
+
+.card-asignatura:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 6px 16px rgba(0,0,0,0.2);
+}
+
+.card-asignatura .card-title {
+  font-weight: bold;
+  margin-bottom: 0.5rem;
+}
+
+.badge-asignado {
+  background: #28a745 !important;
+  font-size: 0.8rem;
+  font-weight: 600;
+}
+
+.badge-no-asignado {
+  background: #dc3545 !important;
+  font-size: 0.8rem;
+  font-weight: 600;
+}
+/* ===== Paleta de colores ===== */
+.color-palette {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, 35px);
+  gap: 10px;
+  margin-top: 10px;
+}
+
+.color-option {
+  width: 35px;
+  height: 35px;
+  border-radius: 50%;
+  cursor: pointer;
+  border: 2px solid transparent;
+  transition: transform 0.2s ease, border 0.2s ease;
+}
+
+.color-option:hover {
+  transform: scale(1.15);
+  border: 2px solid #333;
+}
+
+.color-option.selected {
+  border: 3px solid #000;
+}
+/* ===== Caja de Asignaturas ===== */
+.asignatura-card {
+  border-radius: 20px;
+  background: rgba(255,255,255,0.95);
+  padding: 2rem;
+  max-width: 950px;
+}
+/* ====== Estilo de las tarjetas de asignaturas ====== */
+.card-asignatura {
+  border-radius: 15px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.card-asignatura:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 18px rgba(0,0,0,0.2);
+}
+
+/* Título con el color dinámico */
+.card-asignatura .card-title {
+  font-weight: bold;
+  font-size: 1.1rem;
+}
+
+/* Badge con color de fondo dinámico */
+.badge-asignatura {
+  padding: 6px 12px;
+  border-radius: 12px;
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: #fff;
+}
+/* Limitar altura del desplegable de Profesores */
+#Profesor {
+  max-height: 120px;   /* controla lo alto del menú abierto */
+  overflow-y: auto;    /* activa el scroll si hay más ítems */
+}
+
+#listaAsignaturas {
+  transition: opacity 0.4s ease; /* efecto fade general */
+}
+
+.fade-card {
+  transform: translateY(15px);
+  opacity: 0;
+  animation: slideFadeIn 0.5s forwards;
+}
+
+@keyframes slideFadeIn {
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+#listaProfesores .card {
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+#listaProfesores .card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+}
+.export-buttons {
+  position: fixed;
+  top: 400px;          /* altura inicial (ajústalo a tu gusto) */
+  right: 20px;         /* pegado al borde derecho */
+  display: flex;
+  flex-direction: column;
+  z-index: 1050;       /* para que siempre queden encima */
+}
+
+.export-buttons .btn {
+  width: 120px;         /* mismo ancho */
+  height: 40px;         /* mismo alto */
+  border-radius: 25px;
+  font-weight: bold;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.export-buttons .btn i {
+  margin-right: 6px;    /* espacio entre ícono y texto */
+}
+#headerHorario {
+  max-width: 100%;
+}
+
+#headerHorario h5 {
+  font-size: 1.3rem;
+  color: #002855; /* azul adventista */
+}
+
+#headerHorario p {
+  font-size: 0.9rem;
+  color: #333;
+}
+
+#nivelBadge {
+  border-radius: 20px;
+  background-color: #004aad; /* azul más fuerte */
+}
+body {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+footer {
+  margin-top: auto;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+

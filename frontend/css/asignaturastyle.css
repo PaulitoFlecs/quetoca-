@@ -1,0 +1,334 @@
+/* ===================================================
+   🎓 ESTILO GENERAL DE LA PÁGINA ASIGNATURAS
+   =================================================== */
+
+/* ===== Fondo global ===== */
+html, body {
+  height: auto;            /* ← permite crecer dinámicamente */
+  min-height: 100%;
+  margin: 0;
+  font-family: 'Poppins', sans-serif;
+  background: url('../assets/img/fondo.webp') no-repeat center center fixed;
+  background-size: cover;
+  background-attachment: fixed;
+  display: flex;
+  flex-direction: column;
+}
+
+/* ===== Contenedor principal ===== */
+.main-container {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;       /* asegura que cubra toda la pantalla */
+}
+
+/* ===== Footer ===== */
+footer {
+  margin-top: auto;        /* empuja el footer hacia el final */
+  background: rgba(255,255,255,0.9);
+  text-align: center;
+  font-size: 0.9rem;
+  font-weight: 600;
+  padding: 0.8rem 0;
+  color: #0b2c61;
+  border-top: 2px solid #eaeaea;
+}
+
+
+/* ===== Fondo global ===== */
+body {
+  display: flex;
+  flex-direction: column;
+  min-height: 130vh;
+  background: url('../assets/img/fondo.webp') no-repeat center center fixed;
+  background-size: cover;
+  position: relative;
+}
+
+/* Capa translúcida sobre el fondo */
+body::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(255,255,255,0.15);
+  z-index: -1;
+}
+
+/* ===================================================
+   🧭 TOPBAR / ENCABEZADO
+   =================================================== */
+.topbar {
+  background: #fff;
+  border-bottom: 2px solid #eaeaea;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 70px;
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 1rem;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+}
+
+.topbar h4 {
+  margin: 0;
+  font-size: 1.3rem;
+  color: #0b2c61;
+  font-weight: 700;
+}
+
+.logo-topbar {
+  height: 50px;
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  object-fit: contain;
+}
+
+/* Botón menú */
+.topbar button {
+  border: none;
+  background: transparent;
+  transition: 0.2s;
+}
+.topbar button:hover {
+  transform: scale(1.1);
+}
+
+/* ===================================================
+   🧩 SIDEBAR ACCESIBILIDAD
+   =================================================== */
+.sidebar {
+  height: 100%;
+  width: 0;
+  position: fixed;
+  top: 0;
+  right: 0;
+  background-color: #fff;
+  overflow-x: hidden;
+  transition: 0.4s;
+  padding-top: 80px;
+  box-shadow: -2px 0 10px rgba(0,0,0,0.2);
+  z-index: 2000;
+}
+
+.sidebar h5 {
+  font-weight: 700;
+  color: #0b2c61;
+  padding: 0 1.5rem;
+}
+
+.sidebar-item {
+  display: block;
+  width: 100%;
+  padding: 12px 20px;
+  border: none;
+  background: none;
+  text-align: left;
+  color: #333;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+.sidebar-item:hover {
+  background-color: #f1f1f1;
+}
+
+.closebtn {
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  background: #e74c3c;
+  color: white;
+  border: none;
+  width: 35px;
+  height: 35px;
+  border-radius: 50%;
+  font-weight: bold;
+  font-size: 1.2rem;
+  cursor: pointer;
+  transition: 0.2s;
+}
+.closebtn:hover {
+  background: #c0392b;
+  transform: scale(1.1);
+}
+
+.overlay {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0,0.4);
+  z-index: 1500;
+}
+
+/* ===================================================
+   🗂️ FORMULARIO PRINCIPAL
+   =================================================== */
+.login-container {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  padding-top: 120px; /* espacio para topbar */
+}
+
+/* Efecto vidrio esmerilado */
+.asignatura-card {
+  background: rgba(255, 255, 255, 0.65);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border-radius: 24px;
+  border: none;
+  padding: 2rem;
+  width: 100%;
+  max-width: 950px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+  animation: fadeIn 0.8s ease;
+}
+
+@keyframes fadeIn {
+  0% {opacity: 0; transform: translateY(20px);}
+  100% {opacity: 1; transform: translateY(0);}
+}
+
+.asignatura-card h5 {
+  color: #0b2c61;
+  font-weight: 700;
+}
+
+/* Inputs y selects */
+.asignatura-card .form-control,
+.asignatura-card .form-select {
+  border-radius: 10px;
+  border: 1px solid #d6d6d6;
+  transition: all 0.2s ease-in-out;
+}
+.asignatura-card .form-control:focus,
+.asignatura-card .form-select:focus {
+  border-color: #0b2c61;
+  box-shadow: 0 0 0 0.2rem rgba(11, 44, 97, 0.2);
+}
+
+/* Botón guardar */
+.asignatura-card button[type="submit"] {
+  background: #0b2c61;
+  border: none;
+  font-weight: 600;
+  transition: background 0.3s ease-in-out;
+}
+.asignatura-card button[type="submit"]:hover {
+  background: #133b85;
+}
+
+/* ===================================================
+   🎨 PALETA DE COLORES
+   =================================================== */
+.color-palette {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 6px;
+}
+.color-option {
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  border: 2px solid transparent;
+  cursor: pointer;
+  transition: transform 0.2s ease, border 0.2s ease;
+}
+.color-option:hover {
+  transform: scale(1.15);
+}
+.color-option.selected {
+  border: 3px solid #0b2c61;
+  box-shadow: 0 0 6px rgba(11, 44, 97, 0.5);
+}
+
+/* ===================================================
+   📋 LISTA DE ASIGNATURAS
+   =================================================== */
+.container {
+  flex: 1;
+}
+#listaAsignaturas {
+  transition: opacity 0.4s ease;
+}
+
+.card-asignatura {
+  background: rgba(255, 255, 255, 0.9);
+  border-radius: 16px;
+  transition: all 0.3s ease-in-out;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+}
+.card-asignatura:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.1);
+}
+.card-asignatura h6 {
+  font-weight: 700;
+}
+.card-asignatura .badge {
+  font-size: 0.7rem;
+  font-weight: 600;
+  color: #fff;
+  border-radius: 8px;
+}
+
+/* Animación de aparición */
+.fade-card {
+  transform: translateY(15px);
+  opacity: 0;
+  animation: slideFadeIn 0.5s forwards;
+}
+@keyframes slideFadeIn {
+  to {transform: translateY(0); opacity: 1;}
+}
+
+/* ===================================================
+   🧾 MODAL DE EDICIÓN
+   =================================================== */
+.modal-content {
+  border-radius: 20px;
+  border: none;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
+}
+.modal-header {
+  background: #0b2c61;
+  color: white;
+  border-top-left-radius: 20px;
+  border-top-right-radius: 20px;
+}
+.modal-footer .btn-primary {
+  background: #0b2c61;
+  border: none;
+  font-weight: 600;
+}
+.modal-footer .btn-primary:hover {
+  background: #133b85;
+}
+
+/* ===================================================
+   ⚙️ FOOTER
+   =================================================== */
+footer {
+  margin-top: auto;        /* empuja el footer hacia el final */
+  background: rgba(255,255,255,0.9);
+  text-align: center;
+  font-size: 0.9rem;
+  font-weight: 600;
+  padding: 0.8rem 0;
+  color: #0b2c61;
+  border-top: 2px solid #eaeaea;
+}
