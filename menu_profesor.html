@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Menú Profesor - Carga Horaria</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="css/styles.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+
+  <div class="login-bg">
+    <!-- Header -->
+    <header class="topbar d-flex align-items-center px-4">
+      <h4 class="fw-bold m-0 brand-text">Carga Horaria</h4>
+      <div class="flex-grow-1 text-center">
+        <img src="assets/img/logo.webp" alt="Logo" class="logo-topbar">
+      </div>
+      <button class="btn btn-link text-dark" onclick="toggleSidebar()">
+        <i class="fas fa-bars fa-lg"></i>
+      </button>
+    </header>
+
+    <!-- Sidebar accesibilidad -->
+    <div id="sidebar" class="sidebar">
+      <button class="closebtn" onclick="toggleSidebar()">×</button>
+      <h5 class="text-center mb-4">Accesibilidad</h5>
+      <button class="sidebar-item" onclick="increaseFont()">🔼 Aumentar letra</button>
+      <button class="sidebar-item" onclick="decreaseFont()">🔽 Disminuir letra</button>
+      <button class="sidebar-item" onclick="toggleContrast()">🌙 Alto contraste</button>
+      <button class="sidebar-item" onclick="zoomPage()">🔍 Lupa</button>
+      <button class="sidebar-item" onclick="readContent()">🗣️ Lectura en voz alta</button>
+      <hr>
+      <button class="sidebar-item text-danger" onclick="resetAccessibility()">♻️ Resetear</button>
+      <hr>
+    
+      <!--Botón cerrar sesión-->
+      
+      <button class="sidebar-item text-danger fw-bold" onclick="logout()">🚪 Cerrar Sesión</button>
+    </div>
+
+    <div id="overlay" class="overlay" onclick="toggleSidebar()"></div>
+
+    <!-- Contenido -->
+    <div class="login-container">
+      <div class="container">
+        <div class="row g-4 justify-content-center text-center">
+          <div class="col-12 col-md-6 col-lg-4">
+            <a href="horario.html" class="menu-card">
+              <i class="fas fa-calendar-alt fa-3x"></i>
+              <h5>Mi Horario</h5>
+            </a>
+          </div>
+          <div class="col-12 col-md-6 col-lg-4">
+            <a href="carga-horaria.html" class="menu-card">
+              <i class="fas fa-clock fa-3x"></i>
+              <h5>Mi Carga Horaria</h5>
+            </a>
+          </div>
+          <div class="col-12 col-md-6 col-lg-4">
+            <a href="configuracion.html" class="menu-card">
+              <i class="fas fa-cog fa-3x"></i>
+              <h5>Configuración</h5>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="text-center py-2">
+      © TODOS LOS DERECHOS RESERVADOS
+    </footer>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="js/menu.js"></script>
+</body>
+</html>

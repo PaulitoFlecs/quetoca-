@@ -1,0 +1,1 @@
+// Lógica para asignaciones profesor ↔ asignatura
